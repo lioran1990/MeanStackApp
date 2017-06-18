@@ -1,0 +1,25 @@
+{
+  "name": "supermarketapp",
+  "version": "1.0.0",
+  "description": "MEAN stack application",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app"
+  },
+  "dependencies": {
+    "angular-bootstrap": "~0.14.3",
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "bower": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "*",
+    "mongoose": "*",
+    "ng2-map": "^0.16.5",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "author": "Lior Ran",
+  "license": "ISC"
+}
