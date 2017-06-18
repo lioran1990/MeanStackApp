@@ -1,0 +1,50 @@
+<div class="container">
+  <h1 style=" color: white; text-decoration: underline">Create new product</h1>
+  <form (ngSubmit)="onCreateProduct()">
+
+    <div [formGroup]="myForm">
+
+
+
+      <div class="col-xs-3">
+      <div class="form-group">
+        <label for="serialNumber"> Serial Number</label>
+        <input type="text"  class="form-control" id="serialNumber"
+               placeholder="Enter Serial Number" formControlName="serialNumber">
+      </div>
+      <div class="form-group">
+        <label for="productName"> Product Name</label>
+        <input type="text"  class="form-control" id="productName"
+               placeholder="Enter Product Name" formControlName="productName">
+      </div>
+      <div class="form-group">
+        <label for="productCategory">Product Category</label>
+        <input type="text"  class="form-control" id="productCategory"
+               placeholder="Enter Product Category" formControlName="productCategory">
+      </div>
+      <div class="form-group">
+        <label for="weightable"> Weightable</label>
+        <input type="text"  class="form-control" id="weightable"
+               placeholder="Enter Product Weight" formControlName="weightable">
+      </div>
+      <div class="form-group">
+        <label for="productPrice">Product Price</label>
+        <input type="text"  class="form-control" id="productPrice"
+               placeholder="Enter Product Price" formControlName="productPrice">
+      </div>
+      <div class="form-group">
+        <label for="productManufacturer">Product Manufacturer</label>
+        <input type="text"  class="form-control" id="productManufacturer"
+               placeholder="Enter Product Manufacturer" formControlName="productManufacturer">
+      </div>
+      <div class="form-group">
+        <label for="productStoreID"> Product Store ID</label>
+        <input type="text"  class="form-control" id="productStoreID"
+               placeholder="Enter Store ID" formControlName="productStoreID">
+      </div>
+        <input type="submit" class="btn btn-success"  value="Submit">
+      </div>
+
+    </div>
+  </form>
+</div>

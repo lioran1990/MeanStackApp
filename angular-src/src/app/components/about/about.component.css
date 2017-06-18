@@ -1,0 +1,15 @@
+.container {
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 2;
+  column-gap: 200px;
+}
+
+.img-circle {
+  border-radius: 50%;
+  width:125px;
+}
+
+h2 {
+  padding-left: 108px;
+}

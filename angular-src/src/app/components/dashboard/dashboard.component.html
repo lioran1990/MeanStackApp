@@ -1,0 +1,61 @@
+<h2 class="page-header">Dashboard</h2>
+<p>Users Dashboard</p>
+
+<!-- TABLES -->
+<div class="container">
+  <div class="col-xs-5">
+  <table class="table table-striped table-bordered table-hover table-condensed">
+    <tr>
+      <th >Username</th>
+      <th>Email</th>
+      <th>Actions</th>
+
+    </tr>
+    <tr >
+      <td>Jill</td>
+      <td>Smith</td>
+      <td> <div class="col-xs">
+        <a [routerLinkActive]="['active']" [routerLink]="['/profile']" class="btn btn-danger btn-xs">Delete</a>
+        <a [routerLinkActive]="['active']" [routerLink]="['/profile']" class="btn btn-danger btn-xs">Change</a>
+      </div></td>
+
+
+    </tr>
+    <tr>
+      <td>Eve</td>
+      <td>Jackson</td>
+      <td> <div class="col-xs">
+        <a [routerLinkActive]="['active']" [routerLink]="['/profile']" class="btn btn-danger btn-xs">Delete</a>
+        <a [routerLinkActive]="['active']" [routerLink]="['/profile']" class="btn btn-danger btn-xs">Change</a>
+      </div></td>
+    </tr>
+    <tr>
+      <td>John</td>
+      <td>Doe</td>
+      <td> <div class="col-xs">
+        <a [routerLinkActive]="['active']" [routerLink]="['/profile']" class="btn btn-danger btn-xs">Delete</a>
+        <a [routerLinkActive]="['active']" [routerLink]="['/profile']" class="btn btn-danger btn-xs">Change</a>
+      </div></td>
+
+    </tr>
+    <tr>
+      <td>Stephanie</td>
+      <td>Landon</td>
+      <td> <div class="col-xs">
+        <a [routerLinkActive]="['active']" [routerLink]="['/products/create']" class="btn btn-danger btn-xs">Delete</a>
+        <a [routerLinkActive]="['active']" [routerLink]="['/profile']" class="btn btn-danger btn-xs">Change</a>
+      </div></td>
+
+    </tr>
+    <tr>
+      <td>Mike</td>
+      <td>Johnson</td>
+      <td> <div class="col-s">
+        <a [routerLinkActive]="['active']" [routerLink]="['/products/create']" class="btn btn-danger btn-xs">Delete</a>
+        <a [routerLinkActive]="['active']" [routerLink]="['/profile']" class="btn btn-danger btn-xs">Change</a>
+      </div></td>
+
+    </tr>
+  </table>
+  </div>
+</div>
