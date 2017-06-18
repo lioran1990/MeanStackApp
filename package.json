@@ -17,6 +17,7 @@
     "jsonwebtoken": "*",
     "mongoose": "*",
     "ng2-map": "^0.16.5",
+    "npm": "^5.0.3",
     "passport": "*",
     "passport-jwt": "*"
   },
