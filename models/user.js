@@ -48,3 +48,43 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
             callback(null,isMatch);
     });
 }
+
+/*
+module.exports.getAllUsers = function(callback){
+    console.log(("in get all users profiles"))
+    User.find(function (err,users) {
+        console.log("in find")
+        if(err){
+            console.log("Cant find ");
+            callback(false,users);
+        }  else {
+            console.log("users found");
+            console.log(users);
+             callback(false,users);
+        }
+    });
+}
+*/
+
+module.exports.getAllUsers = function(err,callback){
+    User.find(err,callback)
+}
+
+module.exports.deleteUser = function(user, callback){
+
+    User.remove({_id:user.serialNumber},function (err,callback) {
+        if(err){
+            console.log('error');
+        }else {
+            return callback;
+        }
+    });
+    return callback(false,null);
+}
+
+
+
+
+
+
+

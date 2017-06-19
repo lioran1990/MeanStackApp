@@ -23,6 +23,7 @@ export class ProductComponent implements OnInit {
     console.log('list comp ng oninit');
     this.productService.httpGetList(path).subscribe(data => {
       if(data.success){
+        console.log('bla bla lba'+data.success)
 
         this.products = this.productService.parseJasonProductList({data});
 

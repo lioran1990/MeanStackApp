@@ -28,7 +28,6 @@ export class ProductService {
       i++;
     }
     return this.newProductList;
-
   }
 //get all products by http GET request. no parameters needed
   httpGetList(path){

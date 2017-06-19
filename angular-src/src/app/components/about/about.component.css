@@ -48,6 +48,7 @@ body {
 }
 .heading-title {
   margin-bottom: 100px;
+  /*text-decoration: underline;*/
 }
 .text-center {
   text-align: center;
