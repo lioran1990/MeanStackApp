@@ -82,6 +82,7 @@ body {
 }
 .team-member, .team-member .team-img {
   position: relative;
+  border-radius: 10%;
 
 }
 
