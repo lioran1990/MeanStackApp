@@ -42,8 +42,6 @@ export class ShopsMapComponent implements OnInit{
         //this.router.navigate(['/register']);
       }
     });
-
-
   }
 
   clickedMarker(marker:marker, index:number){

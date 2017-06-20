@@ -58,9 +58,51 @@ router.post('/authenticate', (req, res, next) => {
     })
 });
 
+
 // Profile
 router.get('/profile', passport.authenticate('jwt',{session:false}), (req, res, next) => {
     res.json({user:req.user});
 });
+
+
+// All users JSONs - for dashboard table
+router.get('/userslist', passport.authenticate('jwt',{session:false}), (req, res, next) => {
+    User.getAllUsers((err, users) => {
+        if (err) {
+           res.json({success: false, message: 'problem has occured'});
+        }
+        else {
+             res.json({users,success: true, msg:'Success to fetch all users'});
+
+        }
+    });
+});
+
+router.post('/delete',(req,res,next) => {
+    console.log("In Delete");
+
+    let newUser = new User({
+        _id:  req.body._id,
+        email: req.body.email,
+        name: req.body.name,
+        password: req.body.password,
+        username: req.body.username,
+    });
+    console.log(newUser);
+    User.deleteUser(newUser,function(err,callback){
+        if(err){
+            //console.log(callback);
+            res.json({success: false, msg:'Failed to Delete user'});
+        }else{
+            console.log("inSuccess- server side!!!!");
+            res.json({success:true, msg:'Success To delete user '});
+        }
+    });
+});
+
+
+
+
+
 
 module.exports = router;
