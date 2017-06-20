@@ -29,10 +29,4 @@ $ ng serve
 
 
 
-/*
-Run app
 
-```sh
-$ npm start
-```
-*/
