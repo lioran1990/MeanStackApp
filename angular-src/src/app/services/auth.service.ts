@@ -16,12 +16,12 @@ export class AuthService {
   registerUser(user){
     let headers= new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/register', user, {headers:headers}).map(res=>res.json());
+    return this.http.post('/users/register', user, {headers:headers}).map(res=>res.json());
   }
   authenticateUser(user){
     let headers= new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/users/authenticate', user, {headers:headers}).map(res=>res.json());
+    return this.http.post('/users/authenticate', user, {headers:headers}).map(res=>res.json());
 
   }
   getAllUsers(path){
@@ -29,7 +29,7 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type','application/json');
-    return this.http.get('http://localhost:3000/'+path,{headers: headers}).map(res => res.json());
+    return this.http.get('/'+path,{headers: headers}).map(res => res.json());
   }
 
 
@@ -38,7 +38,7 @@ export class AuthService {
     this.loadToken();
     headers.append('Authorization', this.authToken);
     headers.append('Content-Type', 'application/json');
-    return this.http.get('http://localhost:3000/users/profile',{headers:headers}).map(res=>res.json());
+    return this.http.get('/users/profile',{headers:headers}).map(res=>res.json());
   }
 
   loadToken(){
@@ -68,7 +68,7 @@ export class AuthService {
     let headers = new Headers();
     headers.append('Content-Type','application/json');
     console.log("in HTTP Post");
-    return this.http.post('http://localhost:3000/'+path, object,{headers: headers})
+    return this.http.post('/'+path, object,{headers: headers})
       .map(res => res.json());
 
   }
@@ -76,7 +76,7 @@ export class AuthService {
   httpGet(path){
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.get('http://localhost:3000/'+path,{headers: headers})
+    return this.http.get('/'+path,{headers: headers})
       .map(res => res.json());
   }
 

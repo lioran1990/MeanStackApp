@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+$(document).ready(function () {
     window.onload = function () {
         //canvas init
         var canvas = document.getElementById("canvas");

@@ -18,7 +18,9 @@
       "tsconfig": "tsconfig.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "shophomepage/css/bootstrap.min.css",
+        "shophomepage/css/shop-homepage.css"
       ],
       "scripts": [],
       "environments": {

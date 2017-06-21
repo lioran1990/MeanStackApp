@@ -8,12 +8,13 @@
     "start": "node app"
   },
   "dependencies": {
-    "angular-bootstrap": "~0.14.3",
+    "@angular/cli": "^1.1.2",
+    "angular-bootstrap": "~0.12.2",
     "bcryptjs": "*",
     "body-parser": "*",
     "bower": "*",
     "cors": "*",
-    "express": "*",
+    "express": "^4.15.3",
     "jsonwebtoken": "*",
     "mongoose": "*",
     "ng2-map": "^0.16.5",

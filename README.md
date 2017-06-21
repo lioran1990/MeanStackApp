@@ -72,3 +72,7 @@ iojs -> iojs-v3.3 (-> iojs-v3.3.1) (default)
 $ nvm use v8.1.2                                                                                                               
 Now using node v8.1.2 (npm v5.0.3)
 ```
+
+
+# ng serve (set host and port)
+`ng serve --host 0.0.0.0 --port 8080`

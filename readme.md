@@ -21,3 +21,8 @@
  ```sh		
  $ ng serve		
  ```		
+
+Install MongoDb:
+```bash
+$ sudo apt-get install -y mongodb-org
+```
