@@ -78,7 +78,7 @@ export class UpdateComponent implements OnInit {
         this.router.navigate(['/product']);
 
       } else {
-        this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+        this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 3000});
       }
 
     });
