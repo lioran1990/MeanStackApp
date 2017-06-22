@@ -10,6 +10,8 @@ const passport= require('passport');
 const mongoose= require('mongoose');
 const config= require('./config/database');
 const app= express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 
 
 var allowCrossDomain = function(req, res, next) {
@@ -68,6 +70,19 @@ app.get('/', (req, res) => {
 //landing default page
 app.get('*', (req,res)=> {
     res.sendFile(path.join(__dirname,'public/index.html'));
+});
+
+
+// socketio 
+io.on('connection', function(socket) {
+  console.log('new connection');
+
+  socket.on('add-customer', function(customer) {
+    io.emit('notification', {
+      message: 'new customer',
+      customer: customer
+    });
+  });
 });
 
 //Start Server

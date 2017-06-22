@@ -20,7 +20,8 @@
     "ng2-map": "^0.16.5",
     "npm": "^5.0.3",
     "passport": "*",
-    "passport-jwt": "*"
+    "passport-jwt": "*",
+    "socketio": "^1.0.0"
   },
   "author": "Lior Ran",
   "license": "ISC"

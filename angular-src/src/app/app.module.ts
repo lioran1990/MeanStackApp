@@ -26,7 +26,8 @@ import { SearchComponent } from './components/products/CRUD/search/search.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { ShopsMapComponent } from './components/shops-map/shops-map.component';
 import {GooglMapService} from "./services/google-maps/google-map.service";
-import { AgmCoreModule } from "angular2-google-maps/core"
+import { AgmCoreModule } from "angular2-google-maps/core";
+import { SocketComponent } from './components/socket/socket.component'
 
 
 const appRoutes: Routes =  [
@@ -63,6 +64,7 @@ const appRoutes: Routes =  [
     FooterComponent,
     AboutComponent,
     ShopsMapComponent,
+    SocketComponent,
   ],
   imports: [
     BrowserModule,
