@@ -76,3 +76,10 @@ Now using node v8.1.2 (npm v5.0.3)
 
 # ng serve (set host and port)
 `ng serve --host 0.0.0.0 --port 8080`
+
+
+# init data in db
+```bash
+curl http://localhost:8080/shops/init
+curl http://localhost:8080/products/init
+```

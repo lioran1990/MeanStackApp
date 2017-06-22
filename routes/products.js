@@ -8,7 +8,7 @@ const config = require('../config/database');
 const Product = require('../models/product');
 
 
-router.get('/addDummy',(req,res,next) => {
+router.get('/init',(req,res,next) => {
     console.log("In Router");
     Product.saveProducts(function(err){
         if(err){
