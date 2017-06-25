@@ -2,14 +2,18 @@ const mongoose = require('mongoose');
 const Tweet = require('../models/tweet');
 const dbConfig = require('../config/database');
 
-function startTailableCursor() {
+const StreamTweets = module.exports;
+
+module.exports.startTailableCursor = function(onData) {
     const cursor = Tweet
       .find()
+    //   .$where("sleep(5) || true")
       .tailable({ awaitdata : true })
       .cursor();
 
     cursor.on('data', (doc) => {
-        console.log('doc', doc);
+        onData(doc);
+        // console.log('doc', doc);
     });
     
     cursor.on('close', function() {
@@ -36,4 +40,13 @@ mongoose.connection.on('error',(err)=>{
     console.log('Database error '+ err);
 });
 
-startTailableCursor();
+function onData(data) {
+    console.log('doc', data);
+}
+
+if (!module.parent) {
+  // this is the main module
+  StreamTweets.startTailableCursor(onData);   
+} else {
+  // we were require()d from somewhere else
+}

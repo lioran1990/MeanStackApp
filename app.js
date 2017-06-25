@@ -12,19 +12,8 @@ const config= require('./config/database');
 const app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
-// const Tweet = require('./models/tweet');
-
-// require('events').EventEmitter.defaultMaxListeners = Infinity;
-// var allowCrossDomain = function(req, res, next) {
-//     res.header('Access-Control-Allow-Origin', '*');
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.header('Access-Control-Allow-Headers', 'Content-Type');
-
-//     next();
-// }
-
-// app.use(allowCrossDomain);
-
+const Tweet = require('./models/tweet');
+const StreamTweets = require('./tweets/stream_tweets_mongoose');
 
 //Connect to DB using config file
 mongoose.connect(config.database);
@@ -68,37 +57,21 @@ app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 });
 
-//landing default page
-// app.get('*', (req,res)=> {
-//     res.sendFile(path.join(__dirname,'public/index.html'));
-// });
-
-// console.log("init twitter stream from db");
-
-// stream = Tweet.getStream({ beginData : new Date().toLocaleDateString() });
-
-// stream.on('data', function (doc) {
-//   // do something with the mongoose document
-//   console.log(data);
-// }).on('error', function (err) {
-//   console.log(err);
-// }).on('close', function () {
-//   console.log("close stream");
-// });
-// Tweet.getAllTweetsByTime({ beginData : new Date().toLocaleDateString() }, function(err,callback){
-//     if(err){
-//         console.log(callback)
-//         // res.json({success: false, msg:'Failed fetching all products'});
-//     }else{
-//         console.log("inSuccess");
-//         console.log({callback,success:true, msg:'Listing products '});
-//     }
-// });
-
 // socketio 
-io.on('connection', function(socket) {
-    console.log('new connection');
+io.on('connection', function(socket) {   
+
+    function forwardTweetsToClient(data) {
+        console.log(data);
+            
+        socket.emit('tweet', {
+            tweet : data
+        })
+    }
+
+    StreamTweets.startTailableCursor(forwardTweetsToClient);
 });
+
+
 
 //Start Server
 http.listen(port, function () {
