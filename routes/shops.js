@@ -22,7 +22,7 @@ router.get('/list',(req,res,next) => {
 //--------------------------------------------------------------------------
 
 
-router.get('/test',(req,res,next) => {
+router.get('/init',(req,res,next) => {
     console.log("In Router");
     Shop.saveShops(function(err){
         if(err){

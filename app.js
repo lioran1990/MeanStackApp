@@ -32,7 +32,7 @@ mongoose.connection.on('connected',()=>{
 });
 
 //On error (connection to DB)
-mongoose.connection.on('error',()=>{
+mongoose.connection.on('error',(err)=>{
     console.log('Database error '+ err);
 });
 
@@ -41,12 +41,13 @@ const products = require('./routes/products');
 const shops = require('./routes/shops');
 
 //Port Number
-const port = 3000;
+const port = 8080;
 
 //CORS Middleware
 app.use(cors());
 
 app.use(express.static(path.join(__dirname,'public')));
+app.use(express.static(path.join(__dirname,'angular-src/src')));
 
 //Body Parser Middleware
 app.use(bodyParser.json());
