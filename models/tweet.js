@@ -2,8 +2,12 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 
+// const juiceSchema = new mongoose.Schema({
+//       name: String
+//     }, { capped: BYTE_CAP });
+const BYTE_CAP = 100000;
+
 const TweetSchema = mongoose.Schema({
-    
     tweet_id: {
         type: String,
         required: true,
@@ -32,7 +36,11 @@ const TweetSchema = mongoose.Schema({
         type: String,
         required: true
     }
-});
+},
+    // read https://coderwall.com/p/c8cr1q/tailable-cursors-in-mongodb
+    // https://docs.mongodb.com/manual/core/capped-collections/
+    // https://docs.mongodb.com/manual/core/tailable-cursors/
+    { capped: BYTE_CAP } );
 
 const Tweet = module.exports = mongoose.model('Tweet', TweetSchema);
 
@@ -97,17 +105,3 @@ module.exports.addTweet = function(newTweet, callback) {
     console.log("Add new tweet");
     newTweet.save(callback);
 }
-
-
-var query = {};
-var options = {tailable: true, awaitdata: true, numberOfRetries: Number.MAX_VALUE};
-
-var stream = Tweet.find(query, options).stream();
-
-stream.on('data', function(doc){
-    console.log(doc);
-}).on('error', function (error){
-    console.log(error);
-}).on('close', function () {
-    console.log('closed');
-});
