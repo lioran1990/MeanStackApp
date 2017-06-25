@@ -5,24 +5,25 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 const passport= require('passport');
 const mongoose= require('mongoose');
 const config= require('./config/database');
-const app= express();
+const app = express();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+// const Tweet = require('./models/tweet');
 
+// require('events').EventEmitter.defaultMaxListeners = Infinity;
+// var allowCrossDomain = function(req, res, next) {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type');
 
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
+//     next();
+// }
 
-    next();
-}
-
-app.use(allowCrossDomain);
+// app.use(allowCrossDomain);
 
 
 //Connect to DB using config file
@@ -46,7 +47,7 @@ const shops = require('./routes/shops');
 const port = 8080;
 
 //CORS Middleware
-app.use(cors());
+// app.use(cors());
 
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.static(path.join(__dirname,'angular-src/src')));
@@ -68,24 +69,38 @@ app.get('/', (req, res) => {
 });
 
 //landing default page
-app.get('*', (req,res)=> {
-    res.sendFile(path.join(__dirname,'public/index.html'));
-});
+// app.get('*', (req,res)=> {
+//     res.sendFile(path.join(__dirname,'public/index.html'));
+// });
 
+// console.log("init twitter stream from db");
+
+// stream = Tweet.getStream({ beginData : new Date().toLocaleDateString() });
+
+// stream.on('data', function (doc) {
+//   // do something with the mongoose document
+//   console.log(data);
+// }).on('error', function (err) {
+//   console.log(err);
+// }).on('close', function () {
+//   console.log("close stream");
+// });
+// Tweet.getAllTweetsByTime({ beginData : new Date().toLocaleDateString() }, function(err,callback){
+//     if(err){
+//         console.log(callback)
+//         // res.json({success: false, msg:'Failed fetching all products'});
+//     }else{
+//         console.log("inSuccess");
+//         console.log({callback,success:true, msg:'Listing products '});
+//     }
+// });
 
 // socketio 
 io.on('connection', function(socket) {
-  console.log('new connection');
-
-  socket.on('add-customer', function(customer) {
-    io.emit('notification', {
-      message: 'new customer',
-      customer: customer
-    });
-  });
+    console.log('new connection');
 });
 
 //Start Server
-app.listen(port, function () {
+http.listen(port, function () {
     console.log('Server listening at port %d', port);
 });
