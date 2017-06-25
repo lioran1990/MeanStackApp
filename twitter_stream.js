@@ -25,7 +25,7 @@ tw.track('angular');
 
 
 tw.on('tweet', function(tweet){
-    // console.log(tweet);
+    console.log(tweet);
     
     let newTweet = new Tweet({
         created_at : tweet.created_at,
@@ -38,6 +38,8 @@ tw.on('tweet', function(tweet){
     })
 
     console.log(newTweet);
+
+    
 
     Tweet.addTweet(newTweet, (err, data) => {
         if(err){

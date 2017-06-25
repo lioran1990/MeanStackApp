@@ -1,37 +1,26 @@
 import { Injectable } from '@angular/core';
 import * as io from "socket.io-client"; 
+import {Subject} from 'rxjs/Subject';
 
 @Injectable()
 export class SocketService {
 
   msg: string;
   socket:any = null;
-  lastTweets = [];
+  public invokeEvent:Subject<any> = new Subject();
 
   constructor() {  
-    this.lastTweets.push = function (){
-      if (this.length >= 10) {
-        this.shift();
-      }
-      return Array.prototype.push.apply(this,arguments);
-    }
-
     let cls = this;
     this.socket = io();
 
     this.socket.on('tweet', function(tweet){
       console.log(tweet);
-      cls.lastTweets.push(tweet);
-
-      // if (reference.lastTweets.length >= 10) {
-      //   reference.lastTweets.shift();
-      // }
-
-      console.log(cls.lastTweets.length);
+      cls.callComponent(tweet);
     });
   }
 
-  public getTweets() {
-    return this.lastTweets;
+  callComponent(value) {
+      console.log("callComponent");
+      this.invokeEvent.next(value);
   }
 }

@@ -63,9 +63,7 @@ io.on('connection', function(socket) {
     function forwardTweetsToClient(data) {
         console.log(data);
             
-        socket.emit('tweet', {
-            tweet : data
-        })
+        socket.emit('tweet', data)
     }
 
     StreamTweets.startTailableCursor(forwardTweetsToClient);
