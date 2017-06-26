@@ -14,13 +14,13 @@ export class SocketService {
     this.socket = io();
 
     this.socket.on('tweet', function(tweet){
-      console.log(tweet);
+      // console.log(tweet);
       cls.callComponent(tweet);
     });
   }
 
   callComponent(value) {
-      console.log("callComponent");
+      // console.log("callComponent");
       this.invokeEvent.next(value);
   }
 }

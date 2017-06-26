@@ -18,7 +18,7 @@ export class SocketComponent implements OnInit {
     let cls = this;   
 
     this.socketService.invokeEvent.subscribe((value) => {
-        console.log("Compotnent:", value); 
+        // console.log("Compotnent:", value); 
 
         if (cls.lastTweets.length >= cls.tweetCount) {
           cls.lastTweets.pop();

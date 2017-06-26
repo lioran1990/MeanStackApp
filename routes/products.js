@@ -131,7 +131,7 @@ router.post('/create', (req, res, next) => {
         console.log(newProduct);
         Product.addProduct(newProduct, (err, product) => {
             if (err) {
-                console.log("problem");
+                console.log("problem:", err);
                 res.json({success: false, msg: 'Failed to create product'});
             } else {
                 res.json({success: true, msg: 'Product Created'});
