@@ -14,11 +14,11 @@ const ProductSchema = mongoose.Schema({
         required: true,
     },
     productName: {
-        type: String,validate: /[a-z]/,
+        type: String,validate: /[a-zA-Z]/,
         required: true
     },
     productCategory: {
-        type: String,validate: /[a-z]/,
+        type: String,validate: /[a-zA-Z]/,
         required: true
     },
     weightable: {
@@ -30,7 +30,7 @@ const ProductSchema = mongoose.Schema({
         required: true
     },
     productManufacturer: {
-        type: String,validate: /[a-z]/,
+        type: String,validate: /[a-zA-Z]/,
         required: true
     },
     productStoreID: {
