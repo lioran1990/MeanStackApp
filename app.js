@@ -30,7 +30,7 @@ mongoose.connection.on('error',(err)=>{
     process.exit(1);
 });
 
-const users= require('./routes/users');
+const users = require('./routes/users');
 const products = require('./routes/products');
 const shops = require('./routes/shops');
 
