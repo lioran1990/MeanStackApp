@@ -52,6 +52,20 @@ Product.getCategoryCounts({},function(err,callback){
  });
 });
 
+router.get('/categoryAvg',(req,res,next) => {
+    console.log("In Router");
+Product.getCategoryAvg({},function(err,callback){
+    if(err){
+        console.log(callback)
+        res.json({success: false, msg:'Failed to get stats'});
+    }else{
+        console.log("inSuccess");
+        res.json({callback,success:true, msg:'Showing stats '});
+    }
+});
+});
+
+
 router.post('/delete', (req, res, next) => {
     console.log("In Delete");
 

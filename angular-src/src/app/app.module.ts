@@ -47,6 +47,7 @@ const appRoutes: Routes =  [
   {path: 'products/create',component:CreateComponent},
   {path: 'products/search',component:SearchComponent},
   {path: 'products/stats',component:StatsComponent},
+  {path: 'products/stats2',component:StatsCountComponent},
   {path: 'shops-map',component:ShopsMapComponent}
 ]
 
