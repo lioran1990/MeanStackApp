@@ -1,0 +1,23 @@
+<h1>Tweets</h1>
+<div *ngFor="let tweet of lastTweets">
+  <div class="social-feed-element" dt-create="1498073049000" social-feed-id="877608095672881200">
+    <div class="content"> 
+        <a class="pull-left" href="http://twitter.com/{{ tweet.user_name }}" target="_blank"> 
+            <img class="media-object" src="{{ tweet.user_image_url }}"> 
+        </a>
+      <div class="media-body">
+        <p> 
+            <i class="fa fa-twitter"></i> 
+            <span class="author-title">{{ tweet.user_name }}</span> 
+            <span class="muted pull-right">{{ tweet.created_at | amTimeAgo:true }}</span>          
+        </p>
+
+        <div class="text-wrapper">
+            <p class="social-feed-text">{{ tweet.text }} 
+                <a href="https://twitter.com/statuses/{{ tweet.tweet_id }}" target="_blank" class="read-button">read more</a>
+            </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -26,7 +26,9 @@ import { SearchComponent } from './components/products/CRUD/search/search.compon
 import { FooterComponent } from './components/footer/footer.component';
 import { ShopsMapComponent } from './components/shops-map/shops-map.component';
 import {GooglMapService} from "./services/google-maps/google-map.service";
-import { AgmCoreModule } from "angular2-google-maps/core"
+import { AgmCoreModule } from "angular2-google-maps/core";
+import { SocketComponent } from './components/socket/socket.component';
+import { MomentModule } from 'angular2-moment';
 
 
 const appRoutes: Routes =  [
@@ -63,6 +65,7 @@ const appRoutes: Routes =  [
     FooterComponent,
     AboutComponent,
     ShopsMapComponent,
+    SocketComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,7 +77,7 @@ const appRoutes: Routes =  [
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCjUe7lrUWfZ8IWRGdOAshBbTJUO5EBibU'
     }),
-
+    MomentModule,
   ],
   providers: [ValidateService, AuthService, AuthGuard,ProductService,GooglMapService],
   bootstrap: [AppComponent]

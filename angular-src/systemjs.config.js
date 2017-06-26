@@ -26,20 +26,36 @@
       // other libraries
       'rxjs':                      'npm:rxjs',
       'angular-in-memory-web-api': 'npm:angular-in-memory-web-api',
+      "socket.io-client": 'npm:socket.io-client'
     },
     // packages tells the System loader how to load when no filename and/or no extension
     packages: {
       app: {
         main: './main.js',
         defaultExtension: 'js',
-
-        'angular2-flash-messages':{ main: 'index.js', defaultExtension: 'js' }
+        'angular2-flash-messages': { main: 'index.js', defaultExtension: 'js' },
+        "socket.io-client": {
+          main: './socket.io.js',
+          defaultExtension: 'js'
+        },
+        'moment': {
+                main: './moment.js',
+                defaultExtension: 'js'
+            },
+            'angular2-moment': {
+                main: './index.js',
+                defaultExtension: 'js'
+            }
       },
       rxjs: {
         defaultExtension: 'js'
       },
       'angular-in-memory-web-api': {
         main: './index.js',
+        defaultExtension: 'js'
+      },
+      "socket.io-client": {
+        main: './socket.io.js',
         defaultExtension: 'js'
       }
     }

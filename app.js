@@ -5,23 +5,15 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const cors = require('cors');
+// const cors = require('cors');
 const passport= require('passport');
 const mongoose= require('mongoose');
 const config= require('./config/database');
-const app= express();
-
-
-var allowCrossDomain = function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-
-    next();
-}
-
-app.use(allowCrossDomain);
-
+const app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+const Tweet = require('./models/tweet');
+const StreamTweets = require('./tweets/stream_tweets_mongoose');
 
 //Connect to DB using config file
 mongoose.connect(config.database);
@@ -44,7 +36,7 @@ const shops = require('./routes/shops');
 const port = 8080;
 
 //CORS Middleware
-app.use(cors());
+// app.use(cors());
 
 app.use(express.static(path.join(__dirname,'public')));
 app.use(express.static(path.join(__dirname,'angular-src/src')));
@@ -65,12 +57,21 @@ app.get('/', (req, res) => {
     res.send('Invalid Endpoint');
 });
 
-//landing default page
-app.get('*', (req,res)=> {
-    res.sendFile(path.join(__dirname,'public/index.html'));
+// socketio 
+io.on('connection', function(socket) {   
+
+    function forwardTweetsToClient(data) {
+        console.log(data);
+            
+        socket.emit('tweet', data)
+    }
+
+    StreamTweets.startTailableCursor(forwardTweetsToClient);
 });
 
+
+
 //Start Server
-app.listen(port, function () {
+http.listen(port, function () {
     console.log('Server listening at port %d', port);
 });

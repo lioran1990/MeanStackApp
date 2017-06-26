@@ -111,3 +111,12 @@ Now using node v8.1.2 (npm v5.0.3)
 curl http://localhost:8080/shops/init
 curl http://localhost:8080/products/init
 ```
+
+
+
+### use auto-reload in both server and client
+in angular-src folder run:
+`ng build --watch`
+
+in root folder run:
+`nodemon`
