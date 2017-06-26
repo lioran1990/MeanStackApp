@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {FlashMessagesService} from "angular2-flash-messages";
+import {ProductService} from "../../../../services/product.service";
 import {AuthService} from "../../../../services/auth.service";
 import {Router} from "@angular/router";
 import {Product} from "../../product";
@@ -12,7 +13,10 @@ import {Product} from "../../product";
 export class CreateComponent implements OnInit {
   myForm: FormGroup;
   product : Product;
-  constructor(private formBuilder: FormBuilder, private flashMessage:FlashMessagesService,private authService:AuthService, private router:Router ) {
+  productCategories : string[] = [];
+
+  constructor(private formBuilder: FormBuilder, private flashMessage:FlashMessagesService,
+  private productService:ProductService, private authService:AuthService, private router:Router ) {
     this.myForm = formBuilder.group({
       'serialNumber': [''],
       'productName': [''],
@@ -78,6 +82,17 @@ export class CreateComponent implements OnInit {
 
 
   ngOnInit() {
+    const categoriesPath = 'products/productCategoryList';
+
+    this.productService.httpGetProductCategories(categoriesPath).subscribe(data => {
+      if (data.success) {
+        this.productCategories = data.productCategories;
+
+        console.log('Received productCategories');
+      } else {
+        console.log('Failed receiving product categories, keep it empty');
+      }
+    });
   }
 
 }

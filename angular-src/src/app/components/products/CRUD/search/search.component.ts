@@ -23,7 +23,8 @@ export class SearchComponent implements OnInit {
   productCategories : string[] = [];
   productCategoriesToImages = {};
 
-  constructor(private formBuilder: FormBuilder,private flashMessage:FlashMessagesService,private productService:ProductService,private authService: AuthService, private router:Router) {
+  constructor(private formBuilder: FormBuilder,private flashMessage:FlashMessagesService,
+    private productService:ProductService, private authService: AuthService, private router:Router) {
     this.myForm = formBuilder.group({
       'productName': [''],
       'productCategory': [''],
