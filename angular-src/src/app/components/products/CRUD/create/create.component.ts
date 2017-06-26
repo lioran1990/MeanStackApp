@@ -57,7 +57,7 @@ export class CreateComponent implements OnInit {
 
       } else {
         console.log("im here!!")
-        this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 3000});
+        this.flashMessage.show(data.msg, {cssClass: 'alert-danger', timeout: 3000});
 
       }
 
