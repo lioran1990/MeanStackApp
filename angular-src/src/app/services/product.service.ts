@@ -90,4 +90,11 @@ export class ProductService {
     return product;
   }
 
+  httpGetProductCategories(path) {
+    let headers = new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.get('/'+path,{headers: headers})
+      .map(res => res.json());
+  }
+
 }
