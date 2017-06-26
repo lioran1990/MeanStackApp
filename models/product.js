@@ -60,6 +60,23 @@ module.exports.getAllProducts = function({},callback) {
     });
 }
 
+module.exports.getCategoryCounts = function({},callback) {
+    console.log("get product statistics")
+    Product.aggregate([
+            {"$group" : {_id:"$productCategory", count:{$sum:1}}}
+        ]
+        ,function (err, products) {
+            console.log("in find")
+            if (err) {
+                console.log("cant find");
+            } else {
+                console.log("success")
+                console.log()
+                return callback(false,products);
+            }
+        });
+}
+
 var productCreator = function () {
     this.serialNumber = {};
     this.productName = '';
@@ -177,7 +194,7 @@ productNum10.productStoreID = 10;
 var productNum11 =  new productCreator();
 productNum11.serialNumber = 11;
 productNum11.productName = 'Xbox';
-productNum11.productCategory = 'Game consoles';
+productNum11.productCategory = 'Game Consoles';
 productNum11.weightable = true;
 productNum11.productPrice = 3;
 productNum11.productManufacturer = 'Microsoft';
