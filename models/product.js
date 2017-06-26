@@ -327,5 +327,4 @@ module.exports.addProduct = function(newProduct, callback){
     newProduct.save(callback);
 }
 
-//Product.saveProducts();
-//module.exports = router;
+

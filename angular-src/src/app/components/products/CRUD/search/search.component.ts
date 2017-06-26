@@ -20,6 +20,8 @@ export class SearchComponent implements OnInit {
   productCategory : string;
   productPrice : number;
 
+  productCategories : string[] = [];
+
   constructor(private formBuilder: FormBuilder,private flashMessage:FlashMessagesService,private productService:ProductService,private authService: AuthService, private router:Router) {
     this.myForm = formBuilder.group({
       'productName': [''],
@@ -54,6 +56,8 @@ export class SearchComponent implements OnInit {
       }
     });
 
+   
+
   }
 
   ngOnInit() {
@@ -69,6 +73,17 @@ export class SearchComponent implements OnInit {
         console.log("im here!!")
         this.flashMessage.show('Something went wrong', {cssClass: 'alert-danger', timeout: 5000});
 
+      }
+    });
+
+    const categoriesPath = 'products/productCategoryList';
+
+    this.productService.httpGetProductCategories(categoriesPath).subscribe(data => {
+      if (data.success) {
+        this.productCategories = data.productCategories;
+        console.log('Received productCategories');
+      } else {
+        console.log('Failed receiving product categories, keep it empty');
       }
     });
 
