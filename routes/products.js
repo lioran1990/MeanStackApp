@@ -7,6 +7,10 @@ const passport = require('passport');
 const config = require('../config/database');
 const Product = require('../models/product');
 
+var Db = require('mongodb').Db,
+    MongoClient = require('mongodb').MongoClient,
+    Server = require('mongodb').Server;
+
 
 router.get('/init',(req,res,next) => {
     console.log("In Router");
@@ -159,6 +163,30 @@ router.post('/search', (req, res, next) => {
             console.log("inSuccess");
             res.json({callback, success: true, msg: 'Listing product '});
         }
+    });
+});
+
+router.get('/productCategoryList', (req, res, next) => {
+    console.log("In productCategoryList ");
+    
+    var db = new Db('app', new Server('localhost', 27017));
+    // Establish connection to db
+    db.open(function(err, db) {
+
+        // Crete the collection for the distinct example
+        db.collection('products', function(err, collection) {  
+
+            // Peform a distinct query against the a field
+            collection.distinct('productCategory', function(err, productCategories) {
+                if (err) {
+                    console.log(err)
+                    res.json({success: false, msg: 'Failed fetching product catagories'});
+                } else {
+                    console.log(productCategories);
+                    res.json({productCategories, success: true, msg: 'Listing product catagories'});
+                }
+            });
+        })
     });
 });
 

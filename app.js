@@ -26,9 +26,11 @@ mongoose.connection.on('connected',()=>{
 //On error (connection to DB)
 mongoose.connection.on('error',(err)=>{
     console.log('Database error '+ err);
+    // exit
+    process.exit(1);
 });
 
-const users= require('./routes/users');
+const users = require('./routes/users');
 const products = require('./routes/products');
 const shops = require('./routes/shops');
 

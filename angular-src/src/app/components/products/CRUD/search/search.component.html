@@ -13,8 +13,10 @@
         <div class="form-group">
           <div class="col-xs-3">
           <label for="productCategory">Product Category</label>
-          <input type="text" title="Categories like: Meat\Dairy\Vegetables"  class="form-control" id="productCategory"
-                 placeholder="Enter Product Category" formControlName="productCategory">
+          <select title="Categories like: Meat\Dairy\Vegetables" class="form-control" id="productCategory"
+                 placeholder="Enter Product Category" formControlName="productCategory" [(ngModel)]="productCategory">
+            <option *ngFor="let category of productCategories" [ngValue]="category">{{category}}</option>
+          </select>
           </div>
         </div>
         <div class="form-group">
