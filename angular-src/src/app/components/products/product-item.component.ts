@@ -8,15 +8,15 @@ import {Product} from "./product";
   templateUrl: './product-item.component.html',
 })
 export class ProductItemComponent implements OnInit {
-
+  @Input() product: Product;
+  @Input() categoriesImgs: {} = {};
 
   constructor() {
-
   }
 
-  @Input() product: Product;
+  
 
-  ngOnInit() {
+  ngOnInit() {  
   }
 
 

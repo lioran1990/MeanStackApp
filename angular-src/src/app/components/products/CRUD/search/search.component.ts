@@ -21,6 +21,7 @@ export class SearchComponent implements OnInit {
   productPrice : number;
 
   productCategories : string[] = [];
+  productCategoriesToImages = {};
 
   constructor(private formBuilder: FormBuilder,private flashMessage:FlashMessagesService,private productService:ProductService,private authService: AuthService, private router:Router) {
     this.myForm = formBuilder.group({
@@ -81,6 +82,9 @@ export class SearchComponent implements OnInit {
     this.productService.httpGetProductCategories(categoriesPath).subscribe(data => {
       if (data.success) {
         this.productCategories = data.productCategories;
+        data.productCategories.forEach(element => {
+          this.productCategoriesToImages[element] = '../../../shophomepage/photos/350x120_' + element + ".jpg";
+        });
         console.log('Received productCategories');
       } else {
         console.log('Failed receiving product categories, keep it empty');

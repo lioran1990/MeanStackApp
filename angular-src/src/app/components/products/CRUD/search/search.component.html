@@ -36,7 +36,7 @@
   <br><br>
   <div  class="col-xs-8">
     <ul  class="list-group">
-      <app-product-item  *ngFor="let p of products" [product]="p" >
+      <app-product-item  *ngFor="let p of products" [product]="p" [categoriesImgs]="productCategoriesToImages" >
       </app-product-item>
     </ul>
   </div>

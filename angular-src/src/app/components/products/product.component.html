@@ -6,9 +6,8 @@
 
 <div class="container">
 <div class="row" style="display: inline">
-    <ul class="list-group">
-      <app-product-item
-      *ngFor="let p of products" [product]="p" ></app-product-item>
+    <ul class="list-group"> 
+      <app-product-item *ngFor="let p of products" [product]="p" [categoriesImgs]="productCategoriesToImages" ></app-product-item>
     </ul>
   <!--
   <div class="row">

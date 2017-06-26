@@ -7,12 +7,13 @@ import {Product} from "./product";
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.css']
+  styleUrls: ['./product.component.css'],
 })
 
 export class ProductComponent implements OnInit {
 
   products: Product[] = new Array;
+  productCategoriesToImages = {};
 
   constructor(private flashMessage:FlashMessagesService,private productService:ProductService,private authService: AuthService) { }
 
@@ -36,6 +37,20 @@ export class ProductComponent implements OnInit {
 
       }
     });
+
+    const categoriesPath = 'products/productCategoryList';
+
+    this.productService.httpGetProductCategories(categoriesPath).subscribe(data => {
+      if (data.success) {
+        data.productCategories.forEach(element => {
+          this.productCategoriesToImages[element] = '../../../shophomepage/photos/350x120_' + element + ".jpg";
+        });
+        console.log('Received productCategories');
+      } else {
+        console.log('Failed receiving product categories, keep it empty');
+      }
+    });
+
     this.ngOnDestroy();
   }
 
