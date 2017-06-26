@@ -29,6 +29,8 @@
     "angular2-moment": "^1.4.0",
     "core-js": "^2.4.1",
     "d3": "^4.9.1",
+    "d3-array": "^1.2.0",
+    "d3-axis": "^1.0.8",
     "d3-scale": "^1.0.6",
     "d3-shape": "^1.2.0",
     "engine.io-client": "^3.1.1",

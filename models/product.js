@@ -77,6 +77,23 @@ module.exports.getCategoryCounts = function({},callback) {
         });
 }
 
+module.exports.getCategoryAvg = function({},callback) {
+    console.log("get product statistics")
+    Product.aggregate([
+            {"$group" : {_id:"$productCategory", count:{$avg:"$productPrice"}}}
+        ]
+        ,function (err, products) {
+            console.log("in find")
+            if (err) {
+                console.log("cant find");
+            } else {
+                console.log("success")
+                console.log()
+                return callback(false,products);
+            }
+        });
+}
+
 var productCreator = function () {
     this.serialNumber = {};
     this.productName = '';

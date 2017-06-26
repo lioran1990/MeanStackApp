@@ -4,6 +4,7 @@ import {AuthService} from "../../services/auth.service";
 import {FlashMessagesService} from "angular2-flash-messages";
 import {Product} from "../Products/product";
 import {productCatStats} from "../Stats/productCatStats";
+import {StatsCountComponent} from "../Stats/stats-count.component";
 
 const d3 = require('d3');
 const d3Scale = require('d3-scale');
@@ -11,15 +12,15 @@ const d3Shape = require('d3-shape');
 
 @Component({
   selector: 'app-product-stats',
-  template: `
+  template: `    
     <h1>{{title}}</h1>
     <h2>{{subtitle}}</h2>
-    <svg width="960" height="500"></svg>
+    <svg width="1152" height="600"></svg>
   `
 })
 export class StatsComponent implements OnInit {
 
-  title = 'Products Statistics';
+  title = 'Products Count Statistics by Category';
   subtitle = 'Pie Chart';
 
   private margin = {top: 20, right: 20, bottom: 30, left: 50};
@@ -38,8 +39,8 @@ export class StatsComponent implements OnInit {
   private Stats: any[] = [];
 
   constructor(private flashMessage:FlashMessagesService, private productService:ProductService) {
-    this.width = 900 - this.margin.left - this.margin.right ;
-    this.height = 500 - this.margin.top - this.margin.bottom;
+    this.width = (900 - this.margin.left - this.margin.right)*1.2 ;
+    this.height = (500 - this.margin.top - this.margin.bottom)*1.2;
     this.radius = Math.min(this.width, this.height) / 2;
 
   }
@@ -78,7 +79,7 @@ export class StatsComponent implements OnInit {
       .innerRadius(0);
     this.labelArc = d3Shape.arc()
       .outerRadius(this.radius - 40)
-      .innerRadius(this.radius - 40);
+      .innerRadius(180);
     this.pie = d3Shape.pie()
       .sort(null)
       .value((d: any) => d.count);
@@ -94,8 +95,25 @@ export class StatsComponent implements OnInit {
       .attr("class", "arc");
     g.append("path").attr("d", this.arc)
       .style("fill", (d: any) => this.color(d.data._id) );
-    g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
-      .attr("dy", ".35em")
+    //g.append("text").attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
+    g.append("text")
+      .attr("innerRadius", (d: any) => 0)
+      .attr("outerRadius", (d: any) => 500)
+      .attr("transform", (d: any) => "translate(" + this.labelArc.centroid(d) + ")")
+      //.attr("transform", function(d) {                    //set the label's origin to the center of the arc
+        //we have to make sure to set these before calling arc.centroid
+        //d.innerRadius = 0;
+       // d.outerRadius = 500;
+        //return "translate(" + this.labelArc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
+      //})
+      //.attr("transform", function(d) { //set the label's origin to the center of the arc
+        //we have to make sure to set these before calling arc.centroid
+       // d.outerRadius = 100; // Set Outer Coordinate
+       // d.innerRadius = 145; // Set Inner Coordinate
+       /// return "translate(" + this.labelArc.centroid(d) + ")";
+      //})
+     // .attr("dy", ".85em")
+      .attr("dx", "-2.85em")
       .text((d: any) => d.data._id.toString());
   }
 
