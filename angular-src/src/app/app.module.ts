@@ -29,6 +29,9 @@ import {GooglMapService} from "./services/google-maps/google-map.service";
 import { AgmCoreModule } from "angular2-google-maps/core";
 import { SocketComponent } from './components/socket/socket.component';
 import { MomentModule } from 'angular2-moment';
+import { StatsComponent } from './components/stats/stats.component';
+import { StatsCountComponent } from './components/stats/stats-count.component';
+//import { StatsComponent } from './components/stats/stats.component';
 
 
 const appRoutes: Routes =  [
@@ -43,7 +46,8 @@ const appRoutes: Routes =  [
   {path: 'products/update/:serial',component:UpdateComponent},
   {path: 'products/create',component:CreateComponent},
   {path: 'products/search',component:SearchComponent},
-  {path: 'shops-map',component:ShopsMapComponent},
+  {path: 'products/stats',component:StatsComponent},
+  {path: 'shops-map',component:ShopsMapComponent}
 ]
 
 @NgModule({
@@ -66,6 +70,8 @@ const appRoutes: Routes =  [
     AboutComponent,
     ShopsMapComponent,
     SocketComponent,
+    StatsComponent,
+    StatsCountComponent,
   ],
   imports: [
     BrowserModule,
