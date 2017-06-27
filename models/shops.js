@@ -137,6 +137,20 @@ module.exports.saveShops = function(callback){
     }
 }
 
+module.exports.getShopsNames = function({},callback) {
+    console.log("get shops names")
+    Shop.distinct(("shopBranchName")
+        ,function (err, names) {
+            console.log("in find")
+            if (err) {
+                console.log("cant find");
+            } else {
+                console.log("success")
+                console.log()
+                return callback(false,names);
+            }
+        });
+}
 
 module.exports.getAllShops = function({},callback) {
     console.log("in get all shops")

@@ -14,6 +14,7 @@ export class CreateComponent implements OnInit {
   myForm: FormGroup;
   product : Product;
   productCategories : string[] = [];
+  shopNames : string[] = [];
 
   constructor(private formBuilder: FormBuilder, private flashMessage:FlashMessagesService,
               private productService:ProductService, private authService:AuthService, private router:Router ) {
@@ -24,7 +25,7 @@ export class CreateComponent implements OnInit {
       'weightable': [''],
       'productPrice': [''],
       'productManufacturer': [''],
-      'productStoreID': [''],
+      'productStoreName': [''],
     });
   }
 
@@ -39,7 +40,7 @@ export class CreateComponent implements OnInit {
       this.myForm.get('weightable').value,
       this.myForm.get('productPrice').value,
       this.myForm.get('productManufacturer').value,
-      this.myForm.get('productStoreID').value,
+      this.myForm.get('productStoreName').value,
     )
 
     console.log(this.myForm);
@@ -50,7 +51,7 @@ export class CreateComponent implements OnInit {
       weightable : this.myForm.get('weightable').value,
       productPrice : this.myForm.get('productPrice').value,
       productManufacturer : this.myForm.get('productManufacturer').value,
-      productStoreID : this.myForm.get('productStoreID').value,
+      productStoreName : this.myForm.get('productStoreName').value,
     }
     console.log(product);
 
@@ -86,10 +87,22 @@ export class CreateComponent implements OnInit {
 
   ngOnInit() {
     const categoriesPath = 'products/productCategoryList';
+    const shopNamePath = 'shops/getShopsNames';
 
     this.productService.httpGetProductCategories(categoriesPath).subscribe(data => {
       if (data.success) {
         this.productCategories = data.productCategories;
+
+        console.log('Received productCategories');
+      } else {
+        console.log('Failed receiving product categories, keep it empty');
+      }
+    });
+
+    this.productService.httpGetList(shopNamePath).subscribe(data => {
+      if (data.success) {
+        this.shopNames = data.callback;
+        console.log(data.callback);
 
         console.log('Received productCategories');
       } else {

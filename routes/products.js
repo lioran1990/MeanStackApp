@@ -76,7 +76,7 @@ router.post('/delete', (req, res, next) => {
         weightable: req.body.weightable,
         productPrice: req.body.productPrice,
         productManufacturer: req.body.productManufacturer,
-        productStoreID: req.body.productStoreID,
+        productStoreName: req.body.productStoreName,
     });
     console.log(newProduct);
     Product.deleteProduct(newProduct, function (err, callback) {
@@ -100,7 +100,7 @@ router.post('/update', (req, res, next) => {
         weightable: req.body.weightable,
         productPrice: req.body.productPrice,
         productManufacturer: req.body.productManufacturer,
-        productStoreID: req.body.productStoreID,
+        productStoreName: req.body.productStoreName,
     });
 
     let isProductValid = validateProduct(newProduct);
@@ -123,9 +123,9 @@ router.post('/update', (req, res, next) => {
 function validateProduct(product) {
     console.log(product);
     console.log(isNaN(product.productPrice));
-    console.log(isNaN(product.productStoreID));
-    // return product.productPrice instanceof Number && product.productStoreID instanceof Number;
-    return !isNaN(product.productPrice) && !isNaN(product.productStoreID);
+    console.log(isNaN(product.productStoreName));
+    // return product.productPrice instanceof Number && product.productStoreName instanceof Number;
+    return !isNaN(product.productPrice);
 }
 
 //create
@@ -138,7 +138,7 @@ router.post('/create', (req, res, next) => {
         weightable: req.body.weightable,
         productPrice: req.body.productPrice,
         productManufacturer: req.body.productManufacturer,
-        productStoreID: req.body.productStoreID,
+        productStoreName: req.body.productStoreName
     });
 
     if (validateProduct(newProduct)) {

@@ -15,7 +15,7 @@ const d3Shape = require('d3-shape');
   template: `    
     <h1>{{title}}</h1>
     <h2 class="page-header">{{subtitle}}</h2>
-    <svg width="1152" height="600"></svg>
+    <svg width="1152" height="600" style="margin-bottom: 2cm;"></svg>
   `
 })
 export class StatsComponent implements OnInit {

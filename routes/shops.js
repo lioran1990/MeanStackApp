@@ -36,4 +36,17 @@ router.get('/init',(req,res,next) => {
     });
 });
 
+router.get('/getShopsNames',(req,res,next) => {
+    console.log("In Router");
+Shop.getShopsNames({},function(err,callback){
+    if(err){
+        console.log(callback)
+        res.json({success: false, msg:'Failed to get names'});
+    }else{
+        console.log("inSuccess");
+        res.json({callback,success:true, msg:'Showing names '});
+    }
+  });
+});
+
 module.exports = router;

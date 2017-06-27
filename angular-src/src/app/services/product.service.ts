@@ -90,6 +90,7 @@ export class ProductService {
     return product;
   }
 
+
   httpGetProductCategories(path) {
     let headers = new Headers();
     headers.append('Content-Type','application/json');

@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="margin-bottom: 2cm;">
   <h1 class="page-header" >Create new product</h1>
   <form (ngSubmit)="onCreateProduct()">
 
@@ -41,9 +41,11 @@
                placeholder="Enter Product Manufacturer" formControlName="productManufacturer">
       </div>
       <div class="form-group">
-        <label for="productStoreID"> Product Store ID</label>
-        <input type="text"  class="form-control" id="productStoreID"
-               placeholder="Enter Store ID" formControlName="productStoreID">
+        <label for="productStoreName"> Product Store Name</label>
+        <select title="Select from the existing Stores" class="form-control" id="productStoreName"
+                placeholder="Enter Store Name" formControlName="productStoreName">
+          <option *ngFor="let store of shopNames" [ngValue]="store">{{store}}</option>
+        </select>
       </div>
         <input type="submit" class="btn btn-success"  value="Submit">
       </div>

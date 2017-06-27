@@ -33,8 +33,8 @@ const ProductSchema = mongoose.Schema({
         type: String,validate: /[a-zA-Z]/,
         required: true
     },
-    productStoreID: {
-        type: Number,min :0,
+    productStoreName: {
+        type: String,
         required: true
     },
 });
@@ -101,9 +101,7 @@ var productCreator = function () {
     this.weightable = Boolean;
     this.productPrice = {};
     this.productManufacturer = '';
-    this.productStoreID = {};
-
-
+    this.productStoreName = {};
 };
 
 
@@ -114,7 +112,7 @@ productNum1.productCategory = 'Game Consoles';
 productNum1.weightable = false;
 productNum1.productPrice = 1000;
 productNum1.productManufacturer = 'Sony';
-productNum1.productStoreID = 10;
+productNum1.productStoreName = 'Ofer Grand Mall';
 
 
 var productNum2 =  new productCreator();
@@ -124,7 +122,7 @@ productNum2.productCategory = 'Electronics';
 productNum2.weightable = false;
 productNum2.productPrice = 800;
 productNum2.productManufacturer = 'Tadiran';
-productNum2.productStoreID = 10;
+productNum2.productStoreName = 'Mahsaney Hashmal';
 
 
 var productNum3 =  new productCreator();
@@ -134,7 +132,7 @@ productNum3.productCategory = 'Electronics';
 productNum3.weightable = false;
 productNum3.productPrice = 70;
 productNum3.productManufacturer = 'Philips';
-productNum3.productStoreID = 10;
+productNum3.productStoreName = 'Ofer Grand Mall';
 
 
 var productNum4 =  new productCreator();
@@ -144,7 +142,7 @@ productNum4.productCategory = 'Lights';
 productNum4.weightable = false;
 productNum4.productPrice = 40;
 productNum4.productManufacturer = 'Electra';
-productNum4.productStoreID = 10;
+productNum4.productStoreName = 'Dizengoff Mall';
 
 
 var productNum5 =  new productCreator();
@@ -154,7 +152,7 @@ productNum5.productCategory = 'Electronics';
 productNum5.weightable = false;
 productNum5.productPrice = 50;
 productNum5.productManufacturer = 'Koning';
-productNum5.productStoreID = 10;
+productNum5.productStoreName = 'Dizengoff Mall';
 
 
 //Meat products
@@ -165,7 +163,7 @@ productNum6.productCategory = 'Electronics';
 productNum6.weightable = true;
 productNum6.productPrice = 80;
 productNum6.productManufacturer = 'Galantz';
-productNum6.productStoreID = 10;
+productNum6.productStoreName = 'Arena Mall';
 
 
 var productNum7 =  new productCreator();
@@ -175,7 +173,7 @@ productNum7.productCategory = 'Gadgets';
 productNum7.weightable = true;
 productNum7.productPrice = 70;
 productNum7.productManufacturer = 'Lenovo';
-productNum7.productStoreID = 10;
+productNum7.productStoreName = 'Dizengoff Mall';
 
 
 var productNum8 =  new productCreator();
@@ -185,7 +183,7 @@ productNum8.productCategory = 'Gadgets';
 productNum8.weightable = true;
 productNum8.productPrice = 90;
 productNum8.productManufacturer = 'Apple';
-productNum8.productStoreID = 10;
+productNum8.productStoreName = 'Traklin Hashmal';
 
 
 var productNum9 =  new productCreator();
@@ -195,7 +193,7 @@ productNum9.productCategory = 'Communications';
 productNum9.weightable = true;
 productNum9.productPrice = 60;
 productNum9.productManufacturer = 'Apple';
-productNum9.productStoreID = 10;
+productNum9.productStoreName = 'Arena Mall';
 
 
 var productNum10 =  new productCreator();
@@ -205,7 +203,7 @@ productNum10.productCategory = 'Communications';
 productNum10.weightable = true;
 productNum10.productPrice = 90;
 productNum10.productManufacturer = 'LG';
-productNum10.productStoreID = 10;
+productNum10.productStoreName = 'Dizengoff Mall';
 
 //Vegetables
 var productNum11 =  new productCreator();
@@ -215,7 +213,7 @@ productNum11.productCategory = 'Game Consoles';
 productNum11.weightable = true;
 productNum11.productPrice = 30;
 productNum11.productManufacturer = 'Microsoft';
-productNum11.productStoreID = 10;
+productNum11.productStoreName = 'Dizengoff Mall';
 
 
 var productNum12 =  new productCreator();
@@ -224,8 +222,8 @@ productNum12.productName = 'Refrigerator';
 productNum12.productCategory = 'Electronics';
 productNum12.weightable = true;
 productNum12.productPrice = 20;
-productNum12.productManufacturer = 'Electra';
-productNum12.productStoreID = 10;
+productNum12.productManufacturer = 'Arena Mall';
+productNum12.productStoreName = 'Ofer Grand Mall';
 
 
 var productNum13 =  new productCreator();
@@ -235,7 +233,7 @@ productNum13.productCategory = 'Clothing';
 productNum13.weightable = true;
 productNum13.productPrice = 10;
 productNum13.productManufacturer = 'Philips';
-productNum13.productStoreID = 10;
+productNum13.productStoreName = 'Mahsaney Hashmal';
 
 
 var productNum14 =  new productCreator();
@@ -245,7 +243,7 @@ productNum14.productCategory = 'Hygiene';
 productNum14.weightable = true;
 productNum14.productPrice = 60;
 productNum14.productManufacturer = 'Philips';
-productNum14.productStoreID = 10;
+productNum14.productStoreName = 'Mahsaney Hashmal';
 
 
 var productNum15 =  new productCreator();
@@ -255,7 +253,7 @@ productNum15.productCategory = 'Electronics';
 productNum15.weightable = true;
 productNum15.productPrice = 40;
 productNum15.productManufacturer = 'Kennedy';
-productNum15.productStoreID = 10;
+productNum15.productStoreName = 'Ofer Grand Mall';
 
 
 var product1 = new Product(productNum1);
@@ -309,7 +307,7 @@ module.exports.deleteProduct = function(product, callback){
 }
 
 module.exports.updateProduct = function(newProduct, callback){
-    Product.findOneAndUpdate({serialNumber:newProduct.serialNumber},{$set:{productCategory:newProduct.productCategory,productName:newProduct.productName,weightable:newProduct.weightable,productPrice:newProduct.productPrice,productManufacturer:newProduct.productManufacturer,productStoreID:newProduct.productStoreID}},{new:true},function (err,doc) {
+    Product.findOneAndUpdate({serialNumber:newProduct.serialNumber},{$set:{productCategory:newProduct.productCategory,productName:newProduct.productName,weightable:newProduct.weightable,productPrice:newProduct.productPrice,productManufacturer:newProduct.productManufacturer,productStoreName:newProduct.productStoreName}},{new:true},function (err,doc) {
         if(err){
             console.log('Something wrong when updating data!');
         }

@@ -38,7 +38,7 @@ export class UpdateComponent implements OnInit {
           'weightable': [this.product.weightable],
           'productPrice': [this.product.price],
           'productManufacturer': [this.product.manufacturer],
-          'productStoreID': [this.product.storeID],
+          'productStoreName': [this.product.storeName],
         });
 
       }
@@ -54,7 +54,7 @@ export class UpdateComponent implements OnInit {
       this.myForm.get('weightable').value,
       this.myForm.get('productPrice').value,
       this.myForm.get('productManufacturer').value,
-      this.myForm.get('productStoreID').value,
+      this.myForm.get('productStoreName').value,
     )
 
     const product= {
@@ -64,7 +64,7 @@ export class UpdateComponent implements OnInit {
       weightable : this.myForm.get('weightable').value,
       productPrice : this.myForm.get('productPrice').value,
       productManufacturer : this.myForm.get('productManufacturer').value,
-      productStoreID : this.myForm.get('productStoreID').value,
+      productStoreName : this.myForm.get('productStoreName').value,
     }
 
 
