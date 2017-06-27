@@ -15,7 +15,7 @@ const d3Axis = require('d3-axis');
   selector: 'app-stats-count',
   template: `
     <h1>{{title}}</h1>
-    <h2>{{subtitle}}</h2>
+    <h2 class="page-header">{{subtitle}}</h2>
     <svg width="960" height="500"></svg>
   `
 })
@@ -103,7 +103,7 @@ export class StatsCountComponent implements OnInit {
       .attr("width", this.x.bandwidth())
       .attr("height", (d) => this.height - this.y(d.count))
       .attr("stroke","black")
-      .attr("fill","white");
+      .attr("fill","grey");
   }
 
 }

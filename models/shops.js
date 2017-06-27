@@ -122,10 +122,14 @@ var shopCollection = [shop1,shop2,shop3,shop4,shop5];
 
 module.exports.saveShops = function(callback){
     try{
-        for (var i=0; i<shopCollection.length; i++){
-            shopCollection[i].save();
-        }
-        console.log(shopCollection);
+        mongoose.connection.collections['shops'].drop( function(err) {
+            console.log('Shops collection dropped');
+            //Second- add the new collection
+            for (var i=0; i<shopCollection.length; i++){
+                shopCollection[i].save();
+            }
+        });
+       // console.log(shopCollection);
         return callback(true);
     }
     catch(err){

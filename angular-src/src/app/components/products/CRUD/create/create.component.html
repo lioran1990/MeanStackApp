@@ -21,7 +21,7 @@
         <label for="productCategory">Product Category</label>
         <!--<input type="text"  class="form-control" id="productCategory"
                placeholder="Enter Product Category" formControlName="productCategory">-->
-        <select title="Categories like: Meat\Dairy\Vegetables" class="form-control" id="productCategory"
+        <select title="Select from the existing Categories" class="form-control" id="productCategory"
                  placeholder="Enter Product Category" formControlName="productCategory">
           <option *ngFor="let category of productCategories" [ngValue]="category">{{category}}</option>
         </select>

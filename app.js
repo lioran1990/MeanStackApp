@@ -63,7 +63,7 @@ app.get('/', (req, res) => {
 io.on('connection', function(socket) {   
 
     function forwardTweetsToClient(data) {
-        console.log(data);
+        //console.log(data);
             
         socket.emit('tweet', data)
     }
@@ -72,8 +72,39 @@ io.on('connection', function(socket) {
 });
 
 
-
 //Start Server
 http.listen(port, function () {
     console.log('Server listening at port %d', port);
 });
+
+
+
+//Automatically adding products into DB when starting the server
+var http = require('http');
+var options1 = {
+    host: 'localhost',
+    port: 8080,
+    path: '/products/init'
+};
+http.get(options1, function(resp){
+    resp.on('success', function(chunk){
+        console.log("products has been added to DB!")
+    });
+}).on("error", function(e){
+    console.log("Got error: " + e.message);
+});
+
+//Automatically adding shops into DB when starting the server
+var options2 = {
+    host: 'localhost',
+    port: 8080,
+    path: '/shops/init'
+};
+http.get(options2, function(resp){
+    resp.on('success', function(chunk){
+        console.log("shops has been added to DB!")
+    });
+}).on("error", function(e){
+    console.log("Got error: " + e.message);
+});
+

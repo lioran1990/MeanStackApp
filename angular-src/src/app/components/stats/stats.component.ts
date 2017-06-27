@@ -14,7 +14,7 @@ const d3Shape = require('d3-shape');
   selector: 'app-product-stats',
   template: `    
     <h1>{{title}}</h1>
-    <h2>{{subtitle}}</h2>
+    <h2 class="page-header">{{subtitle}}</h2>
     <svg width="1152" height="600"></svg>
   `
 })

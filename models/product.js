@@ -106,7 +106,7 @@ var productCreator = function () {
 
 };
 
-//Dairy  products
+
 var productNum1 =  new productCreator();
 productNum1.serialNumber = 1;
 productNum1.productName = 'Sony Playstation 4';
@@ -132,7 +132,7 @@ productNum3.serialNumber = 3;
 productNum3.productName = 'Television';
 productNum3.productCategory = 'Electronics';
 productNum3.weightable = false;
-productNum3.productPrice = 7;
+productNum3.productPrice = 70;
 productNum3.productManufacturer = 'Philips';
 productNum3.productStoreID = 10;
 
@@ -142,7 +142,7 @@ productNum4.serialNumber = 4;
 productNum4.productName = 'Lamp';
 productNum4.productCategory = 'Lights';
 productNum4.weightable = false;
-productNum4.productPrice = 4;
+productNum4.productPrice = 40;
 productNum4.productManufacturer = 'Electra';
 productNum4.productStoreID = 10;
 
@@ -152,7 +152,7 @@ productNum5.serialNumber = 5;
 productNum5.productName = 'Electric Bike';
 productNum5.productCategory = 'Electronics';
 productNum5.weightable = false;
-productNum5.productPrice = 5;
+productNum5.productPrice = 50;
 productNum5.productManufacturer = 'Koning';
 productNum5.productStoreID = 10;
 
@@ -163,7 +163,7 @@ productNum6.serialNumber = 6;
 productNum6.productName = 'Microwave';
 productNum6.productCategory = 'Electronics';
 productNum6.weightable = true;
-productNum6.productPrice = 8;
+productNum6.productPrice = 80;
 productNum6.productManufacturer = 'Galantz';
 productNum6.productStoreID = 10;
 
@@ -173,7 +173,7 @@ productNum7.serialNumber = 7;
 productNum7.productName = 'Laptop';
 productNum7.productCategory = 'Gadgets';
 productNum7.weightable = true;
-productNum7.productPrice = 7;
+productNum7.productPrice = 70;
 productNum7.productManufacturer = 'Lenovo';
 productNum7.productStoreID = 10;
 
@@ -183,7 +183,7 @@ productNum8.serialNumber = 8;
 productNum8.productName = 'MacBook';
 productNum8.productCategory = 'Gadgets';
 productNum8.weightable = true;
-productNum8.productPrice = 9;
+productNum8.productPrice = 90;
 productNum8.productManufacturer = 'Apple';
 productNum8.productStoreID = 10;
 
@@ -193,7 +193,7 @@ productNum9.serialNumber = 9;
 productNum9.productName = 'iPhone';
 productNum9.productCategory = 'Communications';
 productNum9.weightable = true;
-productNum9.productPrice = 6;
+productNum9.productPrice = 60;
 productNum9.productManufacturer = 'Apple';
 productNum9.productStoreID = 10;
 
@@ -203,7 +203,7 @@ productNum10.serialNumber = 10;
 productNum10.productName = 'LG g5';
 productNum10.productCategory = 'Communications';
 productNum10.weightable = true;
-productNum10.productPrice = 9;
+productNum10.productPrice = 90;
 productNum10.productManufacturer = 'LG';
 productNum10.productStoreID = 10;
 
@@ -213,7 +213,7 @@ productNum11.serialNumber = 11;
 productNum11.productName = 'Xbox';
 productNum11.productCategory = 'Game Consoles';
 productNum11.weightable = true;
-productNum11.productPrice = 3;
+productNum11.productPrice = 30;
 productNum11.productManufacturer = 'Microsoft';
 productNum11.productStoreID = 10;
 
@@ -223,7 +223,7 @@ productNum12.serialNumber = 12;
 productNum12.productName = 'Refrigerator';
 productNum12.productCategory = 'Electronics';
 productNum12.weightable = true;
-productNum12.productPrice = 2;
+productNum12.productPrice = 20;
 productNum12.productManufacturer = 'Electra';
 productNum12.productStoreID = 10;
 
@@ -233,7 +233,7 @@ productNum13.serialNumber = 13;
 productNum13.productName = 'Iron';
 productNum13.productCategory = 'Clothing';
 productNum13.weightable = true;
-productNum13.productPrice = 1;
+productNum13.productPrice = 10;
 productNum13.productManufacturer = 'Philips';
 productNum13.productStoreID = 10;
 
@@ -243,7 +243,7 @@ productNum14.serialNumber = 14;
 productNum14.productName = 'Shaving machine';
 productNum14.productCategory = 'Hygiene';
 productNum14.weightable = true;
-productNum14.productPrice = 6;
+productNum14.productPrice = 60;
 productNum14.productManufacturer = 'Philips';
 productNum14.productStoreID = 10;
 
@@ -253,7 +253,7 @@ productNum15.serialNumber = 15;
 productNum15.productName = 'Toaster';
 productNum15.productCategory = 'Electronics';
 productNum15.weightable = true;
-productNum15.productPrice = 4;
+productNum15.productPrice = 40;
 productNum15.productManufacturer = 'Kennedy';
 productNum15.productStoreID = 10;
 
@@ -282,10 +282,14 @@ var ProductCollection =
 
 module.exports.saveProducts = function(callback){
     try{
-        for (var i=0; i<ProductCollection.length; i++){
-            ProductCollection[i].save();
-        }
-        console.log(ProductCollection);
+        mongoose.connection.collections['products'].drop( function(err) {
+            console.log('Products collection dropped');
+            //Second- add the new collection
+            for (var i=0; i<ProductCollection.length; i++){
+                ProductCollection[i].save();
+            }
+        });
+        //console.log(ProductCollection);
         return callback(true);
     } catch (err){
         return callback(false);
