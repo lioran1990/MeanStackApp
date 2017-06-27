@@ -12,7 +12,7 @@ export class ProductService {
 
 
   parseJsonSingleProduct(product){
-    product = new Product(product.serialNumber,product.productName,product.productCategory,product.weightable,product.productPrice,product.productManufacturer,product.productStoreID);
+    product = new Product(product.serialNumber,product.productName,product.productCategory,product.weightable,product.productPrice,product.productManufacturer,product.productStoreName);
     return product;
   }
 

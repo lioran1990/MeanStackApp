@@ -18,6 +18,11 @@ export class UpdateComponent implements OnInit {
   private route$ : Subscription;
   private product:  Product;
   myForm: FormGroup;
+  selectedShop : any;
+  selectedCategory : string;
+
+  productCategories : string[] = [];
+  shopNames : string[] = [];
 
   constructor(private route : ActivatedRoute,private productService:ProductService,private formBuilder: FormBuilder, private flashMessage:FlashMessagesService,private authService:AuthService, private router:Router ) {
 
@@ -41,10 +46,34 @@ export class UpdateComponent implements OnInit {
           'productStoreName': [this.product.storeName],
         });
 
+        const categoriesPath = 'products/productCategoryList';
+        const shopNamePath = 'shops/getShopsNames';
+
+        this.productService.httpGetProductCategories(categoriesPath).subscribe(data => {
+          if (data.success) {
+            this.productCategories = data.productCategories;
+
+            console.log('Received productCategories');
+          } else {
+            console.log('Failed receiving product categories, keep it empty');
+          }
+        });
+
+        this.productService.httpGetList(shopNamePath).subscribe(data => {
+          if (data.success) {
+            this.shopNames = data.callback;
+            console.log(data.callback);
+
+            console.log('Received productCategories');
+          } else {
+            console.log('Failed receiving product categories, keep it empty');
+          }
+        });
+
+    //  this.selectedShop = this.product.storeName;
       }
     );
-
-  }
+}
 
   onUpdateProduct(){
     this.product = new Product(

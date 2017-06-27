@@ -16,8 +16,10 @@
       </div>
       <div class="form-group">
         <label for="productCategory">Product Category</label>
-        <input type="text"  class="form-control" id="productCategory"
-               placeholder="Enter productCategory" formControlName="productCategory">
+        <select title="Select from the existing Categories" class="form-control" id="productCategory"
+                placeholder="Enter Product Category" formControlName="productCategory">
+          <option *ngFor="let category of productCategories" [ngValue]="category">{{category}}</option>
+        </select>
       </div>
       <div class="form-group">
         <label for="weightable"> Weightable</label>
@@ -35,9 +37,11 @@
                placeholder="Enter productManufacturer" formControlName="productManufacturer">
       </div>
       <div class="form-group">
-        <label for="productStoreName"> Product Store ID</label>
-        <input type="text"  class="form-control" id="productStoreName"
-               placeholder="Enter productStoreName" formControlName="productStoreName">
+        <label for="productStoreName"> Product Store Name</label>
+        <select title="Select from the existing Stores" class="form-control" id="productStoreName"
+                placeholder="Enter Store Name" formControlName="productStoreName">
+          <option *ngFor="let shop of shopNames" [ngValue]="shop">{{shop}}</option>
+        </select>
       </div>
       <input  type="submit" class="btn btn-danger"   value="Submit">
     </div>
