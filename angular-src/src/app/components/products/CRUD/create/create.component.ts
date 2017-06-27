@@ -16,7 +16,7 @@ export class CreateComponent implements OnInit {
   productCategories : string[] = [];
 
   constructor(private formBuilder: FormBuilder, private flashMessage:FlashMessagesService,
-  private productService:ProductService, private authService:AuthService, private router:Router ) {
+              private productService:ProductService, private authService:AuthService, private router:Router ) {
     this.myForm = formBuilder.group({
       'serialNumber': [''],
       'productName': [''],
@@ -29,8 +29,11 @@ export class CreateComponent implements OnInit {
   }
 
   onCreateProduct(){
+    const serial = Math.floor(Math.random()*10000);
+
     this.product = new Product(
-      this.myForm.get('serialNumber').value,
+      //this.myForm.get('serialNumber').value,
+      serial,
       this.myForm.get('productName').value,
       this.myForm.get('productCategory').value,
       this.myForm.get('weightable').value,
@@ -41,7 +44,7 @@ export class CreateComponent implements OnInit {
 
     console.log(this.myForm);
     const product= {
-      serialNumber : this.myForm.get('serialNumber').value,
+      serialNumber : serial,//this.myForm.get('serialNumber').value,
       productName : this.myForm.get('productName').value,
       productCategory : this.myForm.get('productCategory').value,
       weightable : this.myForm.get('weightable').value,
