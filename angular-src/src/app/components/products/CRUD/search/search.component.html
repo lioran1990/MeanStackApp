@@ -28,6 +28,8 @@
           </div>
         <br>
           <input type="submit" class="btn btn-success btn-m"value="Search">
+              <a [routerLinkActive]="['active']" [routerLink]="['/products/create']" class="btn btn-success">Add product</a>
+
         </div>
 
       </div>
@@ -40,11 +42,7 @@
       </app-product-item>
     </ul>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <a [routerLinkActive]="['active']" [routerLink]="['/products/create']" class="btn btn-success">Add product</a>
-    </div>
-  </div>
+
   <div class="col-xs-4">
     <aside>
 

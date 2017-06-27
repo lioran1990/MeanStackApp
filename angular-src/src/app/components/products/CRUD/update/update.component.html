@@ -3,7 +3,7 @@
   <form (ngSubmit)="onUpdateProduct()">
 
     <div [formGroup]="myForm">
-
+      <div class="col-xs-3">
       <div class="form-group" hidden>
         <label for="serialNumber"> Serial Number</label>
         <input type="text"  class="form-control" id="serialNumber"
@@ -40,6 +40,7 @@
                placeholder="Enter productStoreID" formControlName="productStoreID">
       </div>
       <input  type="submit" class="btn btn-danger"   value="Submit">
+    </div>
     </div>
   </form>
 </div>
