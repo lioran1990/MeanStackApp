@@ -127,7 +127,7 @@ in root folder run:
 <table>
 <thead>
 <tr>
-<th><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/AboutPage.png?raw=true" style= height: 200px; width: 200px; alt="Example1"></th>
+<th><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/AboutPage.png?raw=true" style= "height: 200px; width: 200px"; alt="Example1"></th>
 <th><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/AddProduct.png?raw=true" alt="Example"></th>
 </tr>
 </thead>
