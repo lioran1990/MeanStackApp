@@ -133,7 +133,7 @@ in root folder run:
 </thead>
 <tbody>
 <tr>
-<td><img style="width=640 hieght=480"src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/DashboardPage.png?raw=true" alt="Example"></td>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/DashboardPage.png?raw=true" alt="Example"></td>
 <td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/EditProduct.png?raw=true" alt="Example"></td>
 </tr>
 <tr>
