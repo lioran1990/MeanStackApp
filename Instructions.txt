@@ -1,0 +1,62 @@
+Instructions for run the project:
+Project created by: 
+lior.ran1990@gmail.com - Lior Ran - 305185183
+Calon3@gmail.com - Alon Cohen - 203571336
+artiompetrov55@gmail.com - Artium Petrov- 311805758
+Bityon@gmail.com - Yonatan Bitton - 301268876
+=========================================================================================================================
+Prerequisites: 
+- MongoDB installed
+- Nodejs installed
+- Angular
+=========================================================================================================================
+Manually steps for run the project:
+
+1. Run MongoDB by using the command: "mongod"
+	(run the command under the folder where MongoDB is installed, if it does not configured as enviroment variable)
+2. Run script which inserts twitts to the db:
+	navigate to folder "SupermarketProject" and run the command "node twitter_stream.js"
+	 NOTE: it is important that this command above will run BEFORE the step 3 (run the server).
+3. Run the server:
+	navigate to folder "SupermarketProject" and run the command "node app.js"
+4. Open the browser at url: http://localhost:8080
+=========================================================================================================================
+Automatically run:
+1. Run the script "run_me.bat" (located inside the root project directory). Enjoy!
+
+=========================================================================================================================	
+Notes:
+- Twitter API:
+	under the folder SupermarketProject\config there is a file named twitter_config.json.
+	this is a very important file which includes the user key and user token for TwitterAPI. without this key- the project will be CRASH!
+	If there wiil be many http request using this credentials (caused by initiate from diffrent location simutanly, they will blocked, and cause the project not work.
+	
+	we have provided twitter_config.json with Tested-and-working user credentials.
+	
+	*if from some reason this does not work at the project-checking state, there are 2 options:
+	1. contact us by mail (and we will generate additional user credentials):
+		lior.ran1990@gmail.com - Lior Ran
+		Calon3@gmail.com - Alon Cohen
+		artiompetrov55@gmail.com - Artium Petrov
+		Bityon@gmail.com - Yonatan Bitton
+		
+	2. generate user credentials by your own (recommended) by the following steps:
+		2.1 https://apps.twitter.com/
+		2.2 Login with your user to twitter (if you dont have- create one, quick and easy)
+		2.3 Create new app
+		2.4 Generate new token for the app above. the template below needs to be filled.	
+			{
+				"consumer_key" : "",
+				"consumer_secret" : "",
+				"token" : "-",
+				"token_secret" : ""
+			}
+		2.5 save this json with inserted keys in name twitter_config.json under the folder "SupermarketProject\config"
+		2.6 run the server 
+
+		
+		
+	
+			
+   
+   
