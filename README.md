@@ -134,11 +134,19 @@ in root folder run:
 <tbody>
 <tr>
 <td><img style="width=640 hieght=480"src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/DashboardPage.png?raw=true" alt="Example"></td>
-<td><img src="https://github.com/lioran1990/WebApplication/blob/master/ProjectImg/Example4.png?raw=true" alt="Example"></td>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/EditProduct.png?raw=true" alt="Example"></td>
 </tr>
 <tr>
-<td><img src="https://github.com/lioran1990/WebApplication/blob/master/ProjectImg/Example5.png?raw=true" alt="Example"></td>
-<td><img src="https://github.com/lioran1990/WebApplication/blob/master/ProjectImg/Example6.png?raw=true" alt="Example"></td>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/GoogleMapPage.png?raw=true" alt="Example"></td>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/HomePage.png?raw=true" alt="Example"></td>
+</tr>
+<tr>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/ProductList.png?raw=true" alt="Example"></td>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/ProfilePage.png?raw=true" alt="Example"></td>
+</tr>
+<tr>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/SearchProduct.png?raw=true" alt="Example"></td>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/StatisticsBarChart.png?raw=true" alt="Example"></td>
 </tr>
 </tbody>
 </table>
