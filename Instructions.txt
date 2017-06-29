@@ -1,10 +1,4 @@
 Instructions for run the project:
-Project created by: 
-lior.ran1990@gmail.com - Lior Ran - 305185183
-Calon3@gmail.com - Alon Cohen - 203571336
-artiompetrov55@gmail.com - Artium Petrov- 311805758
-Bityon@gmail.com - Yonatan Bitton - 301268876
-=========================================================================================================================
 Prerequisites: 
 - MongoDB installed
 - Nodejs installed
