@@ -134,7 +134,7 @@ in root folder run:
 <tbody>
 <tr>
 <td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/DashboardPage.png?raw=true" alt="Example"></td>
-<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/EditProduct.png?raw=true" alt="Example"></td>
+<td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/StatisticsPieChart.png?raw=true" alt="Example"></td>
 </tr>
 <tr>
 <td><img src="https://github.com/lioran1990/MeanStackApp/blob/master/ScreenShots/GoogleMapPage.png?raw=true" alt="Example"></td>
