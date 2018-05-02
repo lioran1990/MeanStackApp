@@ -82,7 +82,7 @@ const appRoutes: Routes =  [
     FlashMessagesModule,
     ReactiveFormsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyCjUe7lrUWfZ8IWRGdOAshBbTJUO5EBibU'
+      apiKey: 'EMPTY'
     }),
     MomentModule,
   ],
